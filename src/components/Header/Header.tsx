@@ -1,5 +1,3 @@
-import HeaderLink from "./HeaderLink";
-
 function Header() {
     return (
         <header className="
@@ -9,23 +7,14 @@ function Header() {
             right-0 
             px-3
             py-1
-            flex 
-            justify-between
+            text-center
+            text-3xl
+            font-bold
             bg-white
             shadow">
             <a href="/">
                 Gerador de dados
             </a>
-
-            <ul className="
-                flex
-                gap-3">
-                <li>
-                    <HeaderLink 
-                        url="/"
-                        txt="Teste"/>
-                </li>
-            </ul>
         </header>
     )
 }
