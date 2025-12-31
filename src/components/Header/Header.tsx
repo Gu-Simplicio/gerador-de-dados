@@ -11,6 +11,7 @@ function Header() {
             py-1
             flex 
             justify-between
+            bg-white
             shadow">
             <a href="/">
                 Gerador de dados
