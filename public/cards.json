@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "title": "Gerar CPF aleatório",
+            "text": "Gere um CPF que pode ser validado como correto, para usar em seus projetos",
+            "btnUrl": "/geraCPF",
+            "btnTxt": "Gerar CPF"
+        },
+        {
+            "title": "Gerar CNPJ aleatório",
+            "text": "Gere um CPF que pode ser validado como correto, para usar em seus projetos",
+            "btnUrl": "/geraCNPJ",
+            "btnTxt": "Gerar CNPJ"
+        }
+    ]
+}
