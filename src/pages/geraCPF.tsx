@@ -6,7 +6,7 @@ function GeraCPF() {
     const [cpfGerado, setCpfGerado] = useState<string>('');
 
     // cria um CPF contendo números aleatórios..
-    const gerarCPF = (): string => {
+    const gerarCPF = (): void => {
         // letras do CPF..
         let cpf = "";
         // números do CPF, para gerar os 2 últimos números
@@ -32,12 +32,11 @@ function GeraCPF() {
         }while(auxLoop <= 11);
 
         // CÁLCULO DO PRIMEIRO DÍGITO VERIFICADOR..
-        let auxCalculo = 10; // número auxiliar para calcular
+        // pesos necessários para calcular
+        let pesos: Array<number> = new Array(10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
         let produtoNums = 0; // produto usado para o cálculo
-        for(let num in numsCpf){
-            produtoNums += numsCpf[num] * auxCalculo;
-            auxCalculo--;
-        }
+        
+        for(let num in numsCpf) produtoNums += numsCpf[num] * pesos[num];
         // recebe o resto da divisão, para gerar o primeiro número
         let resto = produtoNums % 11;
 
@@ -51,28 +50,16 @@ function GeraCPF() {
         }
 
         // CÁLCULO DO SEGUNDO DÍGITO VERIFICADOR..
-        auxCalculo = 11;
+        pesos.unshift(11); // adiciona um peso novo
         produtoNums = 0;
-        for(let num in numsCpf){
-            produtoNums += numsCpf[num] * auxCalculo;
-            auxCalculo--;
-        }
+        for(let num in numsCpf) produtoNums += numsCpf[num] * pesos[num];
 
         // novamente, o resto da divisão por 11..
         resto = produtoNums % 11;
         // insere conforme o resultado do resto
         resto < 2 ? cpf += 0 : cpf += 11 - resto;
 
-        return cpf;
-    }
-
-    // função para pegar um CPF aleatório válido
-    const novoCpfValido = () => {
-        //CPF que será gerado
-        let cpf: string = gerarCPF();
-
-        setCpfGerado(cpf);
-        console.log("Teste: ", cpf);
+        setCpfGerado(cpf); //altera o CPF
     }
 
     return (
@@ -97,7 +84,7 @@ function GeraCPF() {
                             duration-300
                             ease-in
                             hover:rounded-full"
-                            onClick={ () => novoCpfValido()}>
+                            onClick={ () => gerarCPF()}>
                     Gerar:
                 </button>
 
