@@ -10,9 +10,12 @@ import PaginaErro from './pages/PaginaErro.tsx'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
     errorElement: <PaginaErro />,
     children: [
+      {
+        path: "/",
+        element: <App />,
+      },
       {
         path: "/geraCPF",
         element: <GeraCPF />
