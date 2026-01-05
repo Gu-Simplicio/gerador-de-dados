@@ -3,6 +3,7 @@ import type { CardData } from "../../interfaces/CardData";
 function Card( props: CardData ){
     return (
         <div className="
+                min-w-80/100
                 max-w-95/100
                 p-2 
                 rounded-md
