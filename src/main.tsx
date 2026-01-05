@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import GeraCPF from './pages/geraCPF.tsx'
+import GeraCPF from './pages/GeraCPF.tsx'
+import GeraCNPJ from './pages/GeraCNPJ.tsx'
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/geraCPF",
     element: <GeraCPF />
+  },
+  {
+    path: "/geraCNPJ",
+    element: <GeraCNPJ />
   }
 ]);
 
