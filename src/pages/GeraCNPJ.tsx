@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Header from "../components/Header/Header";
+import BtnGera from "../components/Geradores/BtnGera";
 
 function GeraCNPJ() {
     // CNPJ que será alterado conforme o usuário clicar no botão..
     const [cnpjGerado, setCnpjGerado] = useState<string>("");
 
-    const gerarCNPJ = (): string => {
+    const gerarCNPJ = (): void => {
         // letras do CNPJ
         let cnpj: string = "";
         // números do CNPJ, serão usados para gerar os últimos números
@@ -59,13 +60,7 @@ function GeraCNPJ() {
 
         resto < 2 ? cnpj += 0 : cnpj += 11 - resto;
 
-        return cnpj;
-    }
-
-    const novoCnpjValido = (): void => {
-        const novoCnpj: string = gerarCNPJ();
-
-        setCnpjGerado(novoCnpj);
+        setCnpjGerado(cnpj);
     }
 
     return (
@@ -80,19 +75,7 @@ function GeraCNPJ() {
                   mt-16">
                 <h1> Gerar CNPJ </h1>
 
-                <button className="
-                            py-1
-                            px-2
-                            cursor-pointer
-                            text-white
-                            font-bold
-                            bg-red-500
-                            duration-300
-                            ease-in
-                            hover:rounded-full"
-                            onClick={() => { novoCnpjValido() }}>
-                    Gerar:
-                </button>
+                <BtnGera funcao={gerarCNPJ} />
 
                 <input 
                     type="text" 
