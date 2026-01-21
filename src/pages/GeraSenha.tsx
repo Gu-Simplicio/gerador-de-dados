@@ -15,7 +15,7 @@ function GeraSenha() {
     }
 
     // altera a opção de conter números ou não
-    
+    const [contemNum, setContemNum] = useState<boolean>(false);
 
     // contém opção de ter caractere especial na senha
     const [ carEspecial, setCarEspecial ] = useState<boolean>(false);
@@ -23,6 +23,8 @@ function GeraSenha() {
     // SENHA QUE SERÁ GERADA
     const [senhaGerada, setSenhaGerada] = useState<string>("");
     const gerarSenha = (): void => {
+        
+
         setSenhaGerada(String(carEspecial));
     }
 
@@ -62,7 +64,16 @@ function GeraSenha() {
                     Adicionar carac. especiais
                 </label>
 
-                
+                { /* NÚMEROS */ }
+                <label htmlFor="inContemNum">
+                    <input 
+                        type="radio" 
+                        id="inContemNum"
+                        checked={contemNum} 
+                        onClick={() => setContemNum(!contemNum)}/>
+
+                    Adicionar números
+                </label>        
 
                 <BtnGera funcao={gerarSenha} />
 
