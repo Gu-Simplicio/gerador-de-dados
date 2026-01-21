@@ -1,10 +1,31 @@
+import { useState } from "react";
 import BtnGera from "../components/Geradores/BtnGera"
-import Header from "../components/Header/Header"
+import Header from "../components/Header/Header"    
+
+const ALFABETO = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", 'q', "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const NUMEROS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const SIMBOLOS = ["!", "@", "#", "$", "&", "_", "-", "/", "?"];
 
 function GeraSenha() {
-    const gerarSenha = (): void => {
-        alert("Teste");;
+    // quantidade de caracteres que a senha terá
+    const [ qntdCaracteres, setQntdCaracteres ] = useState<number>(0);
+    // altera a qntd de caracteres necessários
+    const alteraQntd = (event: React.FormEvent<HTMLInputElement>) => { 
+        setQntdCaracteres(Number(event.currentTarget.value));
     }
+
+    // altera a opção de conter números ou não
+    
+
+    // contém opção de ter caractere especial na senha
+    const [ carEspecial, setCarEspecial ] = useState<boolean>(false);
+    
+    // SENHA QUE SERÁ GERADA
+    const [senhaGerada, setSenhaGerada] = useState<string>("");
+    const gerarSenha = (): void => {
+        setSenhaGerada(String(carEspecial));
+    }
+
 
     return (
         <>
@@ -18,6 +39,31 @@ function GeraSenha() {
                   mt-16">
                 <h1> Gerar senha </h1>
 
+                { /* QNTD DE CARACTERES */ }
+                <label htmlFor="inQntdCar">
+                    Quantidade de caracteres desenhados: 
+
+                    <input 
+                        type="number" 
+                        id="inQntdCark"
+                        placeholder="O padrão será 5"
+                        className="border-1" 
+                        onInput={alteraQntd}/>
+                </label>
+
+                { /* CARACTERES ESPECIAIS */ }
+                <label htmlFor="inCarEsp">
+                    <input 
+                        type="radio" 
+                        id="inCarEsp"
+                        checked={carEspecial} 
+                        onClick={() => setCarEspecial(!carEspecial)}/>
+
+                    Adicionar carac. especiais
+                </label>
+
+                
+
                 <BtnGera funcao={gerarSenha} />
 
                 <input 
@@ -25,7 +71,7 @@ function GeraSenha() {
                     id="inCNPJ" 
                     placeholder="O CNPJ vai aparecer aqui.." 
                     disabled={true}  
-                    value={""}
+                    value={senhaGerada}
                     className="border-1"/>
             </main>
         </>
