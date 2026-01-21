@@ -23,7 +23,14 @@ function GeraSenha() {
     // SENHA QUE SERÁ GERADA
     const [senhaGerada, setSenhaGerada] = useState<string>("");
     const gerarSenha = (): void => {
+        // separa as configurações desejadas para criar a senha..
+        const configSenha = {
+            qntdCaracteres: qntdCaracteres == 0 ? 5 : qntdCaracteres,
+            carEspecial: carEspecial,
+            numeros: contemNum
+        };
         
+        // TERMINAR LÓGICA DA CRIAÇÃO DE SENHA
 
         setSenhaGerada(String(carEspecial));
     }
