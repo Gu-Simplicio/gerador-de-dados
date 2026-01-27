@@ -12,7 +12,6 @@ function GeraSenha() {
     // altera a qntd de caracteres necessários
     const alteraQntd = (event: React.FormEvent<HTMLInputElement>) => { 
         setQntdCaracteres(Number(event.currentTarget.value));
-        console.log(qntdCaracteres);888888
     }
 
     // altera a opção de conter números ou não
@@ -58,9 +57,16 @@ function GeraSenha() {
             });
         }
 
+        // CRIAÇÃO DA SENHA
+        let novaSenha: string = "";
+        for(let i = 0; i < configSenha.qntdCaracteres; i++) {
+            // gera um index aleatório para pegar um item do array
+            const index = Math.floor(Math.random() * carSenha.length);
 
-        console.log("Caracteres para senha: " + carSenha);
-        setSenhaGerada(String(carEspecial));
+            novaSenha += carSenha[index];
+        }
+    
+        setSenhaGerada(novaSenha);
     }
 
 
