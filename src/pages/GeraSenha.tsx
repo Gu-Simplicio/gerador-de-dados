@@ -2,9 +2,9 @@ import { useState } from "react";
 import BtnGera from "../components/Geradores/BtnGera"
 import Header from "../components/Header/Header"    
 
-//const ALFABETO = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", 'q', "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-//const NUMEROS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-//const SIMBOLOS = ["!", "@", "#", "$", "&", "_", "-", "/", "?"];
+const ALFABETO = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", 'q', "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const NUMEROS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const SIMBOLOS = ["!", "@", "#", "$", "&", "_", "-", "/", "?"];
 
 function GeraSenha() {
     // quantidade de caracteres que a senha terá
@@ -12,7 +12,7 @@ function GeraSenha() {
     // altera a qntd de caracteres necessários
     const alteraQntd = (event: React.FormEvent<HTMLInputElement>) => { 
         setQntdCaracteres(Number(event.currentTarget.value));
-        console.log(qntdCaracteres);
+        console.log(qntdCaracteres);888888
     }
 
     // altera a opção de conter números ou não
@@ -25,14 +25,41 @@ function GeraSenha() {
     const [senhaGerada, setSenhaGerada] = useState<string>("");
     const gerarSenha = (): void => {
         // separa as configurações desejadas para criar a senha..
-        /*const configSenha = {
+        const configSenha = {
             qntdCaracteres: qntdCaracteres == 0 ? 5 : qntdCaracteres,
             carEspecial: carEspecial,
             numeros: contemNum
-        }; */
-        
-        // TERMINAR LÓGICA DA CRIAÇÃO DE SENHA
+        }; 
 
+        // caracteres da senha
+        let carSenha: Array<string> = new Array<string>();
+
+        // INSERE O ALFABETO NA SENHA
+        ALFABETO.forEach(a => {
+            // gera um número aleatório entre 0 e 1
+            const numChecagem = Math.floor(Math.random() * 2);
+            // determina se a letra estará em maiúsculo ou minúsculo
+            const letra = numChecagem == 1 ? a.toUpperCase() : a;
+
+            carSenha.push(letra);
+        }) 
+
+        // CASO A SENHA CONTENHA CARACTERES ESPECIAIS
+        if(configSenha.carEspecial) {
+            SIMBOLOS.forEach(s => {
+                carSenha.push(s);
+            });
+        }
+
+        // CASO A SENHA CONTENHA NÚMEROS
+        if(configSenha.numeros) {
+            NUMEROS.forEach(n => {
+                carSenha.push(n);
+            });
+        }
+
+
+        console.log("Caracteres para senha: " + carSenha);
         setSenhaGerada(String(carEspecial));
     }
 
@@ -47,12 +74,6 @@ function GeraSenha() {
                   items-center
                   flex-col
                   mt-16">
-                <h1 className="
-                    text-red-500
-                    text-3xl
-                    font-bold">
-                    AINDA EM PRODUÇÃO..
-                </h1>
 
                 <h1> Gerar senha </h1>
 
