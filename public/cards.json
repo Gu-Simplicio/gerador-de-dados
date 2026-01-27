@@ -11,6 +11,12 @@
             "text": "Gere um CPF que pode ser validado como correto, para usar em seus projetos",
             "btnUrl": "/geraCNPJ",
             "btnTxt": "Gerar CNPJ"
+        },
+        {
+            "title": "Gerar senha segura",
+            "text": "Gere uma senha segura sem ter que ficar pensando muito",
+            "btnUrl": "/geraSenha",
+            "btnTxt": "Gerar senha"
         }
     ]
 }
