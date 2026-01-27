@@ -12,6 +12,7 @@ function GeraSenha() {
     // altera a qntd de caracteres necessários
     const alteraQntd = (event: React.FormEvent<HTMLInputElement>) => { 
         setQntdCaracteres(Number(event.currentTarget.value));
+        console.log(qntdCaracteres);
     }
 
     // altera a opção de conter números ou não
