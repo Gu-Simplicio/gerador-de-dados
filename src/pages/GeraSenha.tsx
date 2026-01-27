@@ -2,9 +2,9 @@ import { useState } from "react";
 import BtnGera from "../components/Geradores/BtnGera"
 import Header from "../components/Header/Header"    
 
-const ALFABETO = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", 'q', "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-const NUMEROS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-const SIMBOLOS = ["!", "@", "#", "$", "&", "_", "-", "/", "?"];
+//const ALFABETO = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", 'q', "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+//const NUMEROS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+//const SIMBOLOS = ["!", "@", "#", "$", "&", "_", "-", "/", "?"];
 
 function GeraSenha() {
     // quantidade de caracteres que a senha terá
@@ -24,11 +24,11 @@ function GeraSenha() {
     const [senhaGerada, setSenhaGerada] = useState<string>("");
     const gerarSenha = (): void => {
         // separa as configurações desejadas para criar a senha..
-        const configSenha = {
+        /*const configSenha = {
             qntdCaracteres: qntdCaracteres == 0 ? 5 : qntdCaracteres,
             carEspecial: carEspecial,
             numeros: contemNum
-        };
+        }; */
         
         // TERMINAR LÓGICA DA CRIAÇÃO DE SENHA
 
