@@ -39,13 +39,20 @@ function GeraSenha() {
     return (
         <>
             <Header />
-        
+
             <main className="
                  flex 
                   gap-5
                   items-center
                   flex-col
                   mt-16">
+                <h1 className="
+                    text-red-500
+                    text-3xl
+                    font-bold">
+                    AINDA EM PRODUÇÃO..
+                </h1>
+
                 <h1> Gerar senha </h1>
 
                 { /* QNTD DE CARACTERES */ }
