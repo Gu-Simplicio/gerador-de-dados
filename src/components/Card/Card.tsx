@@ -3,13 +3,11 @@ import type { CardData } from "../../interfaces/CardData";
 function Card( props: CardData ){
     return (
         <div className="
-                min-w-80/100
-                max-w-95/100
-                p-2 
-                rounded-md
+                lg:w-25/100 md:w-50/100 w-80/100
+                py-3 px-5
+                flex flex-col
                 border
-                border-black
-                shadow-xl">
+                rounded-2xl">
             
             { /* título do card */ }
             <h2 className="
@@ -18,26 +16,29 @@ function Card( props: CardData ){
 
             { /* texto principal */ }
             <p className="
-                    my-2
-                    px-2
+                    w-75/100
+                    my-2 px-2
+                    self-end
+                    text-right
                     indent-4">
                 {props.text}
             </p>
 
             { /* botão do card */ }
             <a href={props.btnUrl} className="
-                                        py-1
-                                        px-3
-                                        text-lg
+                                        py-1 px-3
+                                        self-end
+                                        text-lg font-bold
                                         rounded-full
                                         text-white
                                         bg-red-700
                                         opacity-75
+                                        shadow-[2px_2px_10px_#000]
 
                                         duration-150
                                         ease-in-out
                                         hover:opacity-100
-                                        hover:shadow-xl">
+                                        hover:shadow-[5px_5px_10px_#000]">
                 { props.btnTxt }
             </a>
         </div>
