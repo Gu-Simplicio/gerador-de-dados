@@ -26,7 +26,7 @@ function App() {
                   gap-5
                   items-center
                   flex-col
-                  mt-20">
+                  mt-10">
         {
           cards.map((card, index) => (
             <Card 
