@@ -1,28 +1,19 @@
 function BtnGera( props: { funcao: Function } ) {
 
-    /*
-        py-1
-        px-2
-        cursor-pointer
-        text-white
-        font-bold
-        bg-red-500
-        duration-300
-        ease-in
-        hover:rounded-full
-    */
-
     return <button className="
-                            px-3
-                            py-1
-                            text-xl
+                            py-1 px-3
+                            text-xl text-white font-bold
                             opacity-75
-                            rounded-xl
+                            rounded-full
                             cursor-pointer
-                            bg-sky-400
+                            bg-red-600
+                            shadow-[2px_2px_10px_#000]
+
+                            duration-150
+                            ease-in-out
                             hover:opacity-100
-                            hover:bg-sky-500
-                            hover:text-white"
+                            hover:text-white
+                            hover:shadow-[5px_5px_10px_#000]"
                             onClick={ () => props.funcao()}>
                 Gerar
             </button>
