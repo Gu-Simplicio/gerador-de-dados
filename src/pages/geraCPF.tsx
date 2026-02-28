@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "../components/Header/Header";
 import BtnGera from "../components/Geradores/BtnGera";
+import InputGera from "../components/Geradores/InputGera";
 
 function GeraCPF() {
     // CPF que será alterado conforme o usuário clica no botão..
@@ -77,7 +78,11 @@ function GeraCPF() {
 
                 <BtnGera funcao={gerarCPF}/>
 
-                <input type="text" id="inCPF" placeholder="O CPF vai aparecer aqui.." disabled={true}  className="border-1" value={cpfGerado}/>
+                <InputGera
+                    id="inCPF"
+                    placeholder="O CPF vai aparecer aqui.."
+                    value={cpfGerado}
+                    />
             </main>
         </>
     )

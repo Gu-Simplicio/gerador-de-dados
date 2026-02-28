@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BtnGera from "../components/Geradores/BtnGera"
 import Header from "../components/Header/Header"    
+import InputGera from "../components/Geradores/InputGera";
 
 const ALFABETO = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", 'q', "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const NUMEROS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -119,13 +120,11 @@ function GeraSenha() {
 
                 <BtnGera funcao={gerarSenha} />
 
-                <input 
-                    type="text" 
-                    id="inCNPJ" 
-                    placeholder="O CNPJ vai aparecer aqui.." 
-                    disabled={true}  
+                <InputGera
+                    id="inCNPJ"
+                    placeholder="A senha vai aparecer aqui.."
                     value={senhaGerada}
-                    className="border-1"/>
+                    />
             </main>
         </>
     )
