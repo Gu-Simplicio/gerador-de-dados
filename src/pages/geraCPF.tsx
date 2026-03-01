@@ -76,13 +76,17 @@ function GeraCPF() {
                   mt-10">
                 <h1> Gerar CPF </h1>
 
-                <BtnGera funcao={gerarCPF}/>
+                <div className="
+                    w-full
+                    flex justify-center gap-10">
+                    <BtnGera funcao={gerarCPF}/>
 
-                <InputGera
-                    id="inCPF"
-                    placeholder="O CPF vai aparecer aqui.."
-                    value={cpfGerado}
-                    />
+                    <InputGera
+                        id="inCPF"
+                        placeholder="O CPF vai aparecer aqui.."
+                        value={cpfGerado}
+                        />
+                </div>
             </main>
         </>
     )

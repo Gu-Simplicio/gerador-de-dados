@@ -76,13 +76,17 @@ function GeraCNPJ() {
                   mt-16">
                 <h1> Gerar CNPJ </h1>
 
-                <BtnGera funcao={gerarCNPJ} />
+                <div className="
+                    w-full
+                    flex justify-center gap-10">
+                    <BtnGera funcao={gerarCNPJ} />
                 
-                <InputGera
-                    id="inCNPJ"
-                    placeholder="O CNPJ vai aparecer aqui.."
-                    value={cnpjGerado}
-                    />
+                    <InputGera
+                        id="inCNPJ"
+                        placeholder="O CNPJ vai aparecer aqui.."
+                        value={cnpjGerado}
+                        />
+                </div>
             </main>
         </>
     )

@@ -118,13 +118,17 @@ function GeraSenha() {
                     Adicionar números
                 </label>        
 
-                <BtnGera funcao={gerarSenha} />
+                <div className="
+                    w-full
+                    flex justify-center gap-10">
+                    <BtnGera funcao={gerarSenha} />
 
-                <InputGera
-                    id="inCNPJ"
-                    placeholder="A senha vai aparecer aqui.."
-                    value={senhaGerada}
-                    />
+                    <InputGera
+                        id="inCNPJ"
+                        placeholder="A senha vai aparecer aqui.."
+                        value={senhaGerada}
+                        />
+                </div>
             </main>
         </>
     )
