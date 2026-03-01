@@ -23,7 +23,7 @@ function InputGera(props: InputData){
     }
 
     return (
-        <div className="d-flex ">
+        <div className="flex ">
             <input 
                 type="text" 
                 disabled={true}
@@ -31,11 +31,16 @@ function InputGera(props: InputData){
                 placeholder={props.placeholder}
                 value={props.value}
                 className="
-                    border-1"/>
+                    h-full
+                    pl-3
+                    border-1
+                    border-red-600"/>
             <button className="
-                px-2
+                h-full
+                pl-1 pr-2
                 font-bold text-lg text-white
                 cursor-pointer
+                rounded-r-lg
                 opacity-75
                 bg-red-600
                 
