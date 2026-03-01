@@ -24,8 +24,9 @@ function App() {
       <main className="
                   flex 
                   gap-5
+                  flex-wrap
                   items-center
-                  flex-col
+                  justify-center
                   mt-10">
         {
           cards.map((card, index) => (
