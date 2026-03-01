@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "../components/Header/Header";
 import BtnGera from "../components/Geradores/BtnGera";
 import InputGera from "../components/Geradores/InputGera";
+import TituloPag from "../components/Titulo/TituloPag";
 
 function GeraCPF() {
     // CPF que será alterado conforme o usuário clica no botão..
@@ -74,7 +75,8 @@ function GeraCPF() {
                   items-center
                   flex-col
                   mt-10">
-                <h1> Gerar CPF </h1>
+                <TituloPag 
+                    titulo="CPF"/>
 
                 <div className="
                     w-full

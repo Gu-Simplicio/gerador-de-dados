@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "../components/Header/Header";
 import BtnGera from "../components/Geradores/BtnGera";
 import InputGera from "../components/Geradores/InputGera";
+import TituloPag from "../components/Titulo/TituloPag";
 
 function GeraCNPJ() {
     // CNPJ que será alterado conforme o usuário clicar no botão..
@@ -74,7 +75,9 @@ function GeraCNPJ() {
                   items-center
                   flex-col
                   mt-16">
-                <h1> Gerar CNPJ </h1>
+                <TituloPag
+                    titulo="CNPJ"
+                    />
 
                 <div className="
                     w-full
