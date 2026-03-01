@@ -84,39 +84,46 @@ function GeraSenha() {
 
                 <h1> Gerar senha </h1>
 
-                { /* QNTD DE CARACTERES */ }
-                <label htmlFor="inQntdCar">
-                    Quantidade de caracteres desenhados: 
+                <div className="
+                        flex gap-10">
+                    { /* QNTD DE CARACTERES */ }
+                    <label htmlFor="inQntdCar" className="
+                                                    flex flex-col">
+                        Quantidade de caracteres desenhados: 
 
-                    <input 
-                        type="number" 
-                        id="inQntdCark"
-                        placeholder="O padrão será 5"
-                        className="border-1" 
-                        onInput={alteraQntd}/>
-                </label>
+                        <input 
+                            type="number" 
+                            id="inQntdCark"
+                            placeholder="O padrão será 5"
+                            className="border-1 border-red-600 rounded" 
+                            onInput={alteraQntd}/>
+                    </label>
 
-                { /* CARACTERES ESPECIAIS */ }
-                <label htmlFor="inCarEsp">
-                    <input 
-                        type="radio" 
-                        id="inCarEsp"
-                        checked={carEspecial} 
-                        onClick={() => setCarEspecial(!carEspecial)}/>
+                    <div className="
+                            flex flex-col">
+                        { /* CARACTERES ESPECIAIS */ }
+                        <label htmlFor="inCarEsp">
+                            <input 
+                                type="radio" 
+                                id="inCarEsp"
+                                checked={carEspecial} 
+                                onClick={() => setCarEspecial(!carEspecial)}/>
 
-                    Adicionar carac. especiais
-                </label>
+                            Adicionar carac. especiais
+                        </label>
 
-                { /* NÚMEROS */ }
-                <label htmlFor="inContemNum">
-                    <input 
-                        type="radio" 
-                        id="inContemNum"
-                        checked={contemNum} 
-                        onClick={() => setContemNum(!contemNum)}/>
+                        { /* NÚMEROS */ }
+                        <label htmlFor="inContemNum">
+                            <input 
+                                type="radio" 
+                                id="inContemNum"
+                                checked={contemNum} 
+                                onClick={() => setContemNum(!contemNum)}/>
 
-                    Adicionar números
-                </label>        
+                            Adicionar números
+                        </label>        
+                    </div>
+                </div>
 
                 <div className="
                     w-full
