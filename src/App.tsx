@@ -3,38 +3,19 @@ import './App.css'
 import Card from './components/Card/Card'
 import Header from './components/Header/Header'
 import type { CardData } from './interfaces/CardData';
+import getCards from './services/appService';
 
 function App() {
   // contém todos os cards salvos no JSON
   const [cards, setCards] = useState<CardData[]>([]);
 
   useEffect(() => { // carrega os cards do JSON
-    const carregarCards = async () => { // função para receber os cards
-      try {
-        const response = await fetch('/cards.json', {
-          headers: { // define que aceitará um json como resposta
-            Accept: "application/json"
-          }
-        });
-
-        // caso a requisição falhe
-        if(!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
-        
-        //responsta transformada em JSON
-        const resJson = await response.json();
-
-        // validação..
-        if(resJson && Array.isArray(resJson.data)){
-          setCards(resJson.data);
-        } else {
-          throw new Error("Formato de JSON inválido: 'data' não é um array")
-        }
-      } catch(erro){
-        console.error("Falha ao carregar cards: ", erro);
-      }
-    }
-
-    carregarCards(); // executa a função
+    const recebeCards = async () => await getCards();
+    recebeCards()
+      .then(response => setCards(response))
+      .catch(() => {
+        setCards([])
+      });
   }, []);
 
   return (
@@ -49,15 +30,22 @@ function App() {
                   justify-center
                   mt-10">
         {
-          cards.map((card, index) => (
-            <Card 
-              title={card.title}  
-              text={card.text}
-              btnUrl={card.btnUrl}
-              btnTxt={card.btnTxt}
-              key={index}
-              />
-          ))
+          cards.length > 0 ?
+            cards.map((card, index) => (
+              <Card 
+                title={card.title}  
+                text={card.text}
+                btnUrl={card.btnUrl}
+                btnTxt={card.btnTxt}
+                key={index}
+                />
+            ))
+            : <h1 className='
+                    font-bold
+                    text-3xl text-center
+                    opacity-50'>
+                Erro ao carregar informações <br/> por favor, volte mais tarde
+              </h1>
         }
       </main>
     </>
