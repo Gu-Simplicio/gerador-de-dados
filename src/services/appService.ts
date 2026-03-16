@@ -1,6 +1,6 @@
 export default async function getCards(): Promise<any> {
     try {
-        const response = await fetch('/cards.json', {
+        const response = await fetch('/.json', {
             headers: { // define que aceitará um json como resposta
             Accept: "application/json"
             }
@@ -20,5 +20,6 @@ export default async function getCards(): Promise<any> {
         }
     } catch(erro){
         console.error("Falha ao carregar cards: ", erro);
+        return [];
     }
 }
