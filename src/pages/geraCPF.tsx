@@ -3,7 +3,7 @@ import Header from "../components/Header/Header";
 import BtnGera from "../components/Geradores/BtnGera";
 import InputGera from "../components/Geradores/InputGera";
 import TituloPag from "../components/Titulo/TituloPag";
-import gerarCPF from "../services/gerarCPF";
+import gerarCPF from "../services/cpfService";
 
 function GeraCPF() {
     // CPF que será alterado conforme o usuário clica no botão..
