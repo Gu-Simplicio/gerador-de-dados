@@ -8,14 +8,25 @@ import getCards from './services/appService';
 function App() {
   // contém todos os cards salvos no JSON
   const [cards, setCards] = useState<CardData[]>([]);
+  // contém a informação de erro ou não do getCards()
+  const [erro, setErro] = useState<boolean>(true);
 
   useEffect(() => { // carrega os cards do JSON
-    const recebeCards = async () => await getCards();
-    recebeCards()
-      .then(response => setCards(response))
-      .catch(() => {
-        setCards([])
-      });
+    const recebeCards = async () => {
+      try {
+        // recebe os valores do getCards();
+        const response = await getCards();
+
+        setCards(response);
+        setErro(false);
+      }catch(erro) { // em caso de erro, avisa o erro e esvazia os cards
+        console.error("Erro ao receber cards: ", erro);
+        setErro(true);
+        setCards([]);
+      }
+    };
+    
+    recebeCards();
   }, []);
 
   return (
@@ -30,8 +41,15 @@ function App() {
                   justify-center
                   mt-10">
         {
-          cards.length > 0 ?
-            cards.map((card, index) => (
+          erro ?
+              <h1 className='
+                    font-bold
+                    text-3xl text-center
+                    opacity-50'>
+                Erro ao carregar informações <br/> por favor, volte mais tarde
+              </h1>
+            :
+              cards.map((card, index) => (
               <Card 
                 title={card.title}  
                 text={card.text}
@@ -40,12 +58,6 @@ function App() {
                 key={index}
                 />
             ))
-            : <h1 className='
-                    font-bold
-                    text-3xl text-center
-                    opacity-50'>
-                Erro ao carregar informações <br/> por favor, volte mais tarde
-              </h1>
         }
       </main>
     </>
