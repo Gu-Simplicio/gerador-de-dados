@@ -6,7 +6,7 @@ export default async function getCards(): Promise<any> {
     });
 
     // caso a requisição falhe
-    if(!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+    if(!response.ok || response.status == 404) throw new Error(`Erro HTTP: ${response.status}`);
 
     //responsta transformada em JSON
     const resJson = await response.json();
