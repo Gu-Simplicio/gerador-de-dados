@@ -37,7 +37,7 @@ describe('appService', () => {
         const resultado = await getCards();
 
         // checa o resultado
-        expect(resultado).toEqual(dadosMock);
+        expect(resultado).toEqual(dadosMock.data);
 
         //checa se o fetch foi chamado com o caminho certo
         expect(globalThis.fetch).toHaveBeenCalledWith('/cards.json', expect.any(Object));
