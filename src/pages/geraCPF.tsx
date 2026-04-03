@@ -27,7 +27,7 @@ function GeraCPF() {
 
                 <div className="
                     w-full
-                    flex justify-center gap-10">
+                    flex flex-wrap justify-center gap-10">
                     <BtnGera funcao={novoCPF}/>
 
                     <InputGera
