@@ -1,4 +1,4 @@
-<h1 align="center"> Projeto de Gerador de Dados aleatórios </h1>
+<h1 align="center"> Gerador de Dados aleatórios </h1>
 <h4 align="center">
     Criado com: <br>
     <img src="https://shields.io/badge/-React-000000?logo=react" alt="Imagem da logo do React">
