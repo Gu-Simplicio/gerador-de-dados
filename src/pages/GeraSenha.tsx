@@ -44,7 +44,7 @@ function GeraSenha() {
                     />
 
                 <div className="
-                        flex gap-10">
+                        flex gap-10 flex-wrap justify-center">
                     { /* QNTD DE CARACTERES */ }
                     <label htmlFor="inQntdCar" className="
                                                     flex flex-col">
